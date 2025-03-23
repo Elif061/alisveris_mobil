@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "640074479079",
+    "project_id": "alisveris-mobil",
+    "storage_bucket": "alisveris-mobil.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640074479079:android:966995ef59818dabb07942",
+        "android_client_info": {
+          "package_name": "com.example.alisveris_mobil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnMwHtjxVvypADFbRWZMKoxj4mJOkj-iA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
