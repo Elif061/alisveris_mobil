@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'login_page.dart'; // Yönlendirme için import
+// Logoyu göstermek için gerekli, zaten kullanılıyor
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -20,7 +22,6 @@ class _RegisterPageState extends State<RegisterPage> {
         password: passwordController.text.trim(),
       );
 
-      // E-posta doğrulama gönder
       await userCredential.user?.sendEmailVerification();
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -29,8 +30,11 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       );
 
-      // Kullanıcıyı giriş ekranına geri yönlendir
-      Navigator.pop(context);
+      // 🔄 Giriş ekranına yönlendirme
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Kayıt başarısız: ${e.message}")),
@@ -48,6 +52,14 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
               children: [
+                // ✅ LOGO EKLENDİ
+                Image.asset(
+                  'assets/projelogosu.png',
+                  width: 150,
+                  height: 150,
+                ),
+                const SizedBox(height: 30),
+
                 const Text(
                   'Kayıt Ol',
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
@@ -103,7 +115,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pop(context); // Girişe dön
                   },
                   child: const Text('Zaten hesabın var mı? Giriş yap'),
                 ),
