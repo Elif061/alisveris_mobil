@@ -36,8 +36,12 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Alışveriş Listesi"),
+        title: const Text(
+          "Alışveriş Listesi",
+          style: TextStyle(color: Colors.white), // 🌟 Yazı beyaz
+        ),
         backgroundColor: const Color(0xff001F3F),
+        iconTheme: const IconThemeData(color: Colors.white), // 🌟 Geri ikonu beyaz
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -59,8 +63,13 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
                   onPressed: () => _addItemToFirestore(_controller.text),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xff001F3F),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                    textStyle: const TextStyle(fontSize: 16),
                   ),
-                  child: const Text("Ekle"),
+                  child: const Text(
+                    "Ekle",
+                    style: TextStyle(color: Colors.white), // 🌟 Ekle yazısı da beyaz
+                  ),
                 ),
               ],
             ),
