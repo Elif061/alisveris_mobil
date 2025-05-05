@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'shopping_list_page.dart';
-import 'urunler_listesi_page.dart';
-import 'favoriler_page.dart'; // 🌟 Favoriler sayfasını ekliyoruz
+import 'urun_kategori_sec_page.dart'; // 🌟 Yeni sayfayı ekliyoruz
+import 'favoriler_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const UrunlerListesiPage(kategori: 'meyve-sebze'),
+                    builder: (context) => const UrunKategoriSecPage(kategori: 'meyve-sebze'),
                   ),
                 );
               },
@@ -61,7 +61,6 @@ class HomePage extends StatelessWidget {
             left: 20,
             child: FloatingActionButton.extended(
               onPressed: () {
-                // Şimdilik boş favoriler listesi gönderiyoruz
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -74,7 +73,7 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               icon: const Icon(Icons.favorite, color: Colors.white),
-              backgroundColor: const Color(0xffe53935), // Kırmızı favori rengi
+              backgroundColor: const Color(0xffe53935),
             ),
           ),
 
@@ -102,3 +101,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+

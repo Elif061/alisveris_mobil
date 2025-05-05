@@ -25,6 +25,7 @@ class UrunMarketSecimPage extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => UrunlerListesiPage(
                       kategori: '${kategoriAdi.toLowerCase()}-migros',
+                      market: 'migros',
                     ),
                   ),
                 );
@@ -44,6 +45,7 @@ class UrunMarketSecimPage extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => UrunlerListesiPage(
                       kategori: '${kategoriAdi.toLowerCase()}-a101',
+                      market: 'a101',
                     ),
                   ),
                 );
