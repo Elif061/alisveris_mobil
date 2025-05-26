@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'urunler_listesi_page.dart'; // ürün liste ekranımızı import ediyoruz
+import 'urunler_listesi_page.dart';
 
 class UrunMarketSecimPage extends StatelessWidget {
-  final String kategoriAdi; // örneğin "meyve-sebze"
+  final String kategoriAdi; // Örneğin: "meyve-sebze", "sut-kahvaltilik"
 
   const UrunMarketSecimPage({Key? key, required this.kategoriAdi}) : super(key: key);
 
+  // "meyve-sebze" → "Meyve Sebze"
+  String duzenlenmisKategoriAdi(String text) {
+    return text.split('-').map((e) => e[0].toUpperCase() + e.substring(1)).join(' ');
+  }
+
   @override
   Widget build(BuildContext context) {
+    String gosterimAdi = duzenlenmisKategoriAdi(kategoriAdi);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('$kategoriAdi - Market Seçimi'),
+        title: Text('$gosterimAdi - Market Seçimi'),
         backgroundColor: const Color(0xff001F3F),
       ),
       body: Padding(
@@ -18,27 +25,34 @@ class UrunMarketSecimPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(
+            // Migros Butonu
+            ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => UrunlerListesiPage(
-                      kategori: '${kategoriAdi.toLowerCase()}-migros',
-                      market: 'migros',
+                     kategori: kategoriAdi.toLowerCase(), // yani sadece 'meyve-sebze' gibi
+market: 'Migros', // Firestore'daki gibi büyük harfli
+
                     ),
                   ),
                 );
               },
-              child: const Text('Migros Ürünleri'),
+              icon: const Icon(Icons.store, color: Colors.white),
+              label: const Text('Migros Ürünleri', style: TextStyle(color: Colors.white)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.orange,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 textStyle: const TextStyle(fontSize: 18),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
+            // A101 Butonu
+            ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -50,11 +64,15 @@ class UrunMarketSecimPage extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('A101 Ürünleri'),
+              icon: const Icon(Icons.store, color: Colors.white),
+              label: const Text('A101 Ürünleri', style: TextStyle(color: Colors.white)),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 textStyle: const TextStyle(fontSize: 18),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
               ),
             ),
           ],

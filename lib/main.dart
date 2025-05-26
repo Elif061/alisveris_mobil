@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // 🔹 Favori ürünler için eklendi
 
 import 'firebase_options.dart';
 import 'pages/login_page.dart';
 import 'pages/home_page.dart'; // ✅ Ana sayfa burada
+
+// ✅ Global favori ürün listesi:
+List<DocumentSnapshot> favoriUrunler = [];
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,4 +48,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

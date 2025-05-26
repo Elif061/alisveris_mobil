@@ -27,7 +27,7 @@ class UrunKategoriSecPage extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => UrunlerListesiPage(
                       kategori: kategori,
-                      market: 'migros',
+                      market: 'Migros',
                     ),
                   ),
                 );
@@ -40,7 +40,7 @@ class UrunKategoriSecPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            // BİM Butonu
+            // A101 Butonu
             ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
@@ -48,15 +48,15 @@ class UrunKategoriSecPage extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => UrunlerListesiPage(
                       kategori: kategori,
-                      market: 'bim',
+                      market: 'A101',
                     ),
                   ),
                 );
               },
               icon: const Icon(Icons.store_mall_directory, color: Colors.white),
-              label: const Text("BİM", style: TextStyle(color: Colors.white)),
+              label: const Text("A101", style: TextStyle(color: Colors.white)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green.shade700,
+                backgroundColor: Color.fromARGB(255, 71, 142, 193),
                 minimumSize: const Size.fromHeight(50),
               ),
             ),
